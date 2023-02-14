@@ -15,7 +15,7 @@ func InitialMigration() {
 	DB, err = gorm.Open(mysql.Open(ConnectionString), &gorm.Config{})
 	if err != nil {
 		fmt.Println(err.Error())
-		panic("Can't connect to DB!")
+		return
 	}
 
 	DB.AutoMigrate(&User{})
